@@ -16,7 +16,10 @@ public class SMBitDataReader {
 
     public var currentByte: UInt8 { prefix }
     public var currentByteLength: UInt8 { prefixSize }
-    
+    public var currentIndex: Int { prefixSize == 0 ? index : index - 1 }
+    public var bytesArray: [UInt8] { [UInt8](data) }
+    public var elapsedBytesArray: [UInt8] { Array([UInt8](data)[index..<data.endIndex]) }
+
     public var elapsedBytes: Int {
         data.count - index
     }
