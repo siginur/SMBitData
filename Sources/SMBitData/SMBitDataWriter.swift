@@ -13,6 +13,9 @@ public class SMBitDataWriter {
     private(set) var suffix: UInt8 = 0
     private(set) var suffixSize: UInt8 = 0
     
+    public var currentByte: UInt8 { suffix }
+    public var currentByteLength: UInt8 { suffixSize }
+    
     public var data: Data {
         var fullData = _data
         if suffixSize > 0 {
